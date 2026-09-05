@@ -36,6 +36,60 @@
 
     <!-- ===== FOOTER ===== -->
 
+    <TextView
+        android:id="@+id/titleMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="AI Lungs X-Ray"
+        android:textColor="#0E0E0E"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/xrayCard" />
 
+    <TextView
+        android:id="@+id/titleAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Analyzer"
+        android:textColor="#29B6E6"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleMain" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/getStarted"
+        android:layout_width="0dp"
+        android:layout_height="58dp"
+        android:layout_marginHorizontal="32dp"
+        android:background="@drawable/btn_primary"
+        android:text="Get Started"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleAccent"
+        app:layout_constraintVertical_bias="0.353" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:letterSpacing="0.14"
+        android:text="FOR HEALTHCARE PROFESSIONAL USE ONLY"
+        android:textColor="#9CA3AF"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
