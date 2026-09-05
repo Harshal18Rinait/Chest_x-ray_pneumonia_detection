@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Background -->
+    <color name="bg_light">#F7F9FB</color>
+
+    <!-- Primary Blue -->
+    <color name="primary_blue">#29B6E6</color>
+
+    <!-- Title Black -->
+    <color name="text_dark">#0E0E0E</color>
+
+    <!-- Subtitle Grey -->
+    <color name="text_grey">#6B7280</color>
+
+    <!-- Card Gradient -->
+    <color name="card_start">#D8B58A</color>
+    <color name="card_end">#E7C89F</color>
+
+    <!-- Footer Grey -->
+    <color name="footer_grey">#9CA3AF</color>
+
+    <color name="green">#00695C</color>
+</resources>

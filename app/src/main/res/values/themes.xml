@@ -1,0 +1,32 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Detector" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.Detector" parent="Base.Theme.Detector" />
+    <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="TitleText">
+
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/text_dark</item>
+    </style>
+
+    <style name="AccentText">
+
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/primary_blue</item>
+    </style>
+
+    <style name="DescriptionText">
+
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/text_grey</item>
+        <item name="android:lineSpacingExtra">6dp</item>
+    </style>
+</resources>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6FAFD"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Header -->
+        <TextView
+            android:id="@+id/tvMoltbot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AI Diagnostics"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#0F172A"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="6dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="● AI System Online"
+            android:textSize="14sp"
+            android:textColor="#16A34A"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- X-ray Card -->
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@drawable/card_outline"
+                android:orientation="vertical"
+                android:padding="5dp"
+                android:layout_marginBottom="30dp">
+               <androidx.cardview.widget.CardView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   app:cardCornerRadius="18dp">
+                   <ImageView
+                       android:id="@+id/imageView"
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:src="@drawable/lungs"
+                       android:scaleType="fitXY" />
+               </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+        <!-- Analyze Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSelect"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Analyze X-ray Image"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/btn_primary"
+            android:layout_marginBottom="14dp"/>
+
+        <!-- Download Button -->
+
+
+        <!-- Result Placeholder -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="4dp"
+            android:background="@drawable/btn_outline"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:id="@+id/resultText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No Analysis Yet\nUpload or select an image to begin diagnostic screening"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:background="@drawable/btn_outline"
+                android:textColor="#000000"
+                android:gravity="center"
+                android:padding="20dp"/>
+        </androidx.cardview.widget.CardView>
+
+        <!-- AI Confidence Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="#FFFFFF"
+            android:layout_marginBottom="30dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="20dp"
+                android:background="@drawable/card_outline"
+                android:gravity="center_vertical">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp">
+
+                    <com.google.android.material.progressindicator.CircularProgressIndicator
+                        android:id="@+id/confidenceProgress"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:indeterminate="false"
+                        android:progress="0"
+                        android:max="100"
+                        app:indicatorSize="72dp"
+                        app:trackThickness="8dp"
+                        app:indicatorColor="#2563EB"
+                        app:trackColor="#DBEAFE"/>
+
+                    <TextView
+                        android:id="@+id/confidenceText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="0%"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="#2563EB"/>
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="AI Confidence"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="#0F172A"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="System waiting for analysis trigger"
+                        android:textSize="13sp"
+                        android:textColor="#64748B"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btndownload"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Download Report"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#2563EB"
+            android:background="@drawable/btn_outline"
+            android:layout_marginBottom="24dp"/>
+
+    </LinearLayout>
+</ScrollView>
