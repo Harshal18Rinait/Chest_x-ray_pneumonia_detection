@@ -53,13 +53,13 @@ public class XrayDetection extends Fragment {
     CircularProgressIndicator confidenceProgress;
 
 
-    // ================= AI =================
+    // AI
 
     OrtEnvironment env;
     OrtSession diseaseSession;
 
 
-    // ================= ANALYSIS DATA =================
+    // ANALYSIS DATA
 
     private Bitmap analyzedBitmap = null;
 
@@ -70,14 +70,11 @@ public class XrayDetection extends Fragment {
     private float lastConfidence = 0f;
 
 
-    // ================= IMAGE PICKER =================
+    // IMAGE PICKER
 
     ActivityResultLauncher<Intent> imagePickerLauncher;
 
-
-    // =========================================================
     // ON CREATE VIEW
-    // =========================================================
 
     @Nullable
     @Override
@@ -94,7 +91,7 @@ public class XrayDetection extends Fragment {
         );
 
 
-        // ================= FIND VIEWS =================
+        // FIND VIEWS
 
         imageView = view.findViewById(R.id.imageView);
 
@@ -112,7 +109,7 @@ public class XrayDetection extends Fragment {
                 view.findViewById(R.id.btndownload);
 
 
-        // ================= INITIAL UI =================
+        // INITIAL UI
 
         resultText.setText("Loading AI Model...");
 
@@ -121,12 +118,12 @@ public class XrayDetection extends Fragment {
         confidenceProgress.setProgress(0, true);
 
 
-        // ================= INITIALIZE AI =================
+        // INITIALIZE AI
 
         initAI();
 
 
-        // ================= IMAGE PICKER =================
+        // IMAGE PICKER
 
         imagePickerLauncher =
                 registerForActivityResult(
@@ -149,7 +146,7 @@ public class XrayDetection extends Fragment {
                 );
 
 
-        // ================= SELECT IMAGE =================
+        // SELECT IMAGE
 
         btnSelect.setOnClickListener(v -> {
 
@@ -162,7 +159,7 @@ public class XrayDetection extends Fragment {
         });
 
 
-        // ================= DOWNLOAD REPORT =================
+        // DOWNLOAD REPORT
 
         btnDownload.setOnClickListener(v -> {
 
@@ -195,10 +192,7 @@ public class XrayDetection extends Fragment {
         return view;
     }
 
-
-    // =========================================================
     // INITIALIZE AI MODEL
-    // =========================================================
 
     private void initAI() {
 
@@ -221,24 +215,21 @@ public class XrayDetection extends Fragment {
 
             // Model loaded successfully
             resultText.setText(
-                    "🟢 AI System Ready"
+                    "AI System Ready"
             );
 
 
         } catch (Exception e) {
 
             resultText.setText(
-                    "🔴 Model Load Failed"
+                    "Model Load Failed"
             );
 
             e.printStackTrace();
         }
     }
 
-
-    // =========================================================
     // PROCESS IMAGE
-    // =========================================================
 
     private void processImage(Uri uri) {
 
@@ -253,7 +244,7 @@ public class XrayDetection extends Fragment {
             if (is == null) {
 
                 resultText.setText(
-                        "❌ Unable to open image"
+                        "Unable to open image"
                 );
 
                 return;
@@ -270,7 +261,7 @@ public class XrayDetection extends Fragment {
             if (bitmap == null) {
 
                 resultText.setText(
-                        "❌ Invalid Image"
+                        "Invalid Image"
                 );
 
                 return;
@@ -288,17 +279,14 @@ public class XrayDetection extends Fragment {
         } catch (Exception e) {
 
             resultText.setText(
-                    "❌ Image Load Error"
+                    "Image Load Error"
             );
 
             e.printStackTrace();
         }
     }
 
-
-    // =========================================================
     // ANALYZE IMAGE
-    // =========================================================
 
     private void analyzeBitmap(Bitmap bitmap) {
 
@@ -314,7 +302,7 @@ public class XrayDetection extends Fragment {
 
             // Show analyzing state
             resultText.setText(
-                    "🔄 Analyzing..."
+                    "Analyzing..."
             );
 
             confidenceText.setText(
@@ -326,18 +314,12 @@ public class XrayDetection extends Fragment {
                     true
             );
 
-
-            // =================================================
             // PREPROCESS IMAGE
-            // =================================================
 
             float[] diseaseInput =
                     preprocessNCHW(bitmap);
 
-
-            // =================================================
             // CREATE ONNX TENSOR
-            // =================================================
 
             OnnxTensor diseaseTensor =
                     OnnxTensor.createTensor(
@@ -353,10 +335,7 @@ public class XrayDetection extends Fragment {
                             }
                     );
 
-
-            // =================================================
             // RUN MODEL
-            // =================================================
 
             Object output =
                     diseaseSession
@@ -373,19 +352,13 @@ public class XrayDetection extends Fragment {
                             .get(0)
                             .getValue();
 
-
-            // =================================================
             // GET MODEL OUTPUT
-            // =================================================
 
             float confidence =
                     ((float[][]) output)[0][0];
 
 
-            // =================================================
             // SAVE RESULTS
-            // =================================================
-
             analyzedBitmap = bitmap;
 
             lastConfidence = confidence;
@@ -398,10 +371,7 @@ public class XrayDetection extends Fragment {
 
             analysisDone = true;
 
-
-            // =================================================
             // UPDATE CONFIDENCE UI
-            // =================================================
 
             int percentage =
                     (int) (confidence * 100);
@@ -422,21 +392,18 @@ public class XrayDetection extends Fragment {
                     percentage
             );
 
-
-            // =================================================
             // SHOW RESULT
-            // =================================================
 
             if (lastDiseaseDetected) {
 
                 resultText.setText(
-                        "⚠ Pneumonia Detected"
+                        "Pneumonia Detected"
                 );
 
             } else {
 
                 resultText.setText(
-                        "✅ Normal Chest X-ray"
+                        "Normal Chest X-ray"
                 );
             }
 
@@ -448,7 +415,7 @@ public class XrayDetection extends Fragment {
         } catch (Exception e) {
 
             resultText.setText(
-                    "❌ Analysis Error"
+                    "Analysis Error"
             );
 
             confidenceText.setText(
@@ -464,10 +431,7 @@ public class XrayDetection extends Fragment {
         }
     }
 
-
-    // =========================================================
     // GENERATE PDF REPORT
-    // =========================================================
 
     private File generatePdfReport()
             throws Exception {
@@ -509,10 +473,7 @@ public class XrayDetection extends Fragment {
         Canvas c =
                 page.getCanvas();
 
-
-        // =================================================
         // PAINTS
-        // =================================================
 
         Paint titlePaint =
                 new Paint();
@@ -557,9 +518,7 @@ public class XrayDetection extends Fragment {
         int y = 40;
 
 
-        // =================================================
         // REPORT TITLE
-        // =================================================
 
         c.drawText(
                 "AI BASED PNEUMONIA SCREENING REPORT",
@@ -581,9 +540,7 @@ public class XrayDetection extends Fragment {
         );
 
 
-        // =================================================
         // REPORT META
-        // =================================================
 
         y += 30;
 
@@ -630,9 +587,7 @@ public class XrayDetection extends Fragment {
         );
 
 
-        // =================================================
         // PATIENT INFORMATION
-        // =================================================
 
         y += 25;
 
@@ -677,10 +632,7 @@ public class XrayDetection extends Fragment {
                 bodyPaint
         );
 
-
-        // =================================================
         // IMAGE
-        // =================================================
 
         y += 25;
 
@@ -714,11 +666,7 @@ public class XrayDetection extends Fragment {
                     null
             );
         }
-
-
-        // =================================================
         // ANALYSIS
-        // =================================================
 
         y += 240;
 
@@ -770,10 +718,7 @@ public class XrayDetection extends Fragment {
                 bodyPaint
         );
 
-
-        // =================================================
         // INTERPRETATION
-        // =================================================
 
         y += 25;
 
@@ -843,11 +788,7 @@ public class XrayDetection extends Fragment {
                     bodyPaint
             );
         }
-
-
-        // =================================================
         // DISCLAIMER
-        // =================================================
 
         y += 30;
 
@@ -924,11 +865,7 @@ public class XrayDetection extends Fragment {
                 y,
                 bodyPaint
         );
-
-
-        // =================================================
         // SIGNATURE
-        // =================================================
 
         y = 780;
 
@@ -948,18 +885,11 @@ public class XrayDetection extends Fragment {
                 y + 5,
                 bodyPaint
         );
-
-
-        // =================================================
         // FINISH PDF
-        // =================================================
 
         pdf.finishPage(page);
 
-
-        // =================================================
         // SAVE FILE
-        // =================================================
 
         File file =
                 new File(
@@ -987,11 +917,7 @@ public class XrayDetection extends Fragment {
 
         return file;
     }
-
-
-    // =========================================================
     // OPEN PDF
-    // =========================================================
 
     private void openPdf(File file) {
 
@@ -1039,10 +965,7 @@ public class XrayDetection extends Fragment {
         }
     }
 
-
-    // =========================================================
     // COPY MODEL FROM ASSETS
-    // =========================================================
 
     private String copyModel(String name)
             throws Exception {
@@ -1099,10 +1022,7 @@ public class XrayDetection extends Fragment {
         return f.getAbsolutePath();
     }
 
-
-    // =========================================================
     // IMAGE PREPROCESSING
-    // =========================================================
 
     private float[] preprocessNCHW(
             Bitmap bitmap) {
@@ -1179,10 +1099,7 @@ public class XrayDetection extends Fragment {
         return input;
     }
 
-
-    // =========================================================
     // UPDATE CONFIDENCE UI
-    // =========================================================
 
     private void updateConfidenceUI(
             int percentage) {
@@ -1198,11 +1115,7 @@ public class XrayDetection extends Fragment {
                 percentage + "%"
         );
     }
-
-
-    // =========================================================
     // NO ANALYSIS DIALOG
-    // =========================================================
 
     private void showNoAnalysisDialog() {
 
@@ -1226,11 +1139,7 @@ public class XrayDetection extends Fragment {
 
                 .show();
     }
-
-
-    // =========================================================
     // ERROR DIALOG
-    // =========================================================
 
     private void showErrorDialog(
             String message) {

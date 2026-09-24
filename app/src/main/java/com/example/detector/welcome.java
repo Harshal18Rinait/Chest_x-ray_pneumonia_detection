@@ -15,13 +15,13 @@ public class welcome extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // ✅ FIRST load layout
+        // FIRST load layout
         setContentView(R.layout.activity_welcome);
 
-        // ✅ THEN bind views
+        // THEN bind views
         startbtn = findViewById(R.id.getStarted);
 
-        // ✅ THEN use the view
+        // THEN use the view
         startbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
