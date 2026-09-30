@@ -51,7 +51,8 @@
                        android:layout_width="match_parent"
                        android:layout_height="match_parent"
                        android:src="@drawable/lungs"
-                       android:scaleType="fitXY" />
+                       android:background="#0F172A"
+                       android:scaleType="fitCenter" />
                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
@@ -163,17 +164,38 @@
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btndownload"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="Download Report"
-            android:textAllCaps="false"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="#2563EB"
-            android:background="@drawable/btn_outline"
-            android:layout_marginBottom="24dp"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btndownload"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:text="View Report"
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#2563EB"
+                android:background="@drawable/btn_outline"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnShare"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:text="Share Report"
+                android:textAllCaps="false"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/btn_primary"/>
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>

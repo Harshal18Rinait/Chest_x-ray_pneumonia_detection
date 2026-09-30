@@ -4,14 +4,12 @@ plugins {
 
 android {
     namespace = "com.example.detector"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.detector"
         minSdk = 24
-        targetSdk = 36
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -38,29 +36,11 @@ dependencies {
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
-    implementation(libs.play.services.location)
+
+    // ONNX Runtime Android for on-device neural network inference
+    implementation("com.microsoft.onnxruntime:onnxruntime-android:1.16.0")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    implementation("com.microsoft.onnxruntime:onnxruntime-android:1.15.1")
-    implementation("com.google.android.material:material:1.12.0")
-    implementation("com.google.android.material:material:1.9.0")
-// Required for CircularProgressIndicator
-    implementation("com.microsoft.onnxruntime:onnxruntime-android:1.16.0")
-// Or your preferred version
-    dependencies {
-
-        implementation("androidx.appcompat:appcompat:1.6.1")
-        implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-
-        implementation("com.android.volley:volley:1.2.1")
-
-        // OpenStreetMap (NO Google Maps, NO API key)
-        implementation("org.osmdroid:osmdroid-android:6.1.18")
-    }
-
-    implementation("com.google.mlkit:text-recognition:16.0.0")
-    implementation("com.squareup.okhttp3:okhttp:4.12.0")
-
-
 }

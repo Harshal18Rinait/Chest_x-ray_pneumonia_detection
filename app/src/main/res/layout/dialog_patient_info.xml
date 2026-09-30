@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/dialogTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Patient Information"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#0F172A"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter patient details for the diagnostic report"
+            android:textSize="13sp"
+            android:textColor="#64748B"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="18dp"/>
+
+        <!-- Patient Name -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Patient Full Name *"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="#334155"
+            android:layout_marginBottom="4dp"/>
+
+        <EditText
+            android:id="@+id/etPatientName"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="e.g. Rahul Sharma"
+            android:inputType="textPersonName|textCapWords"
+            android:textSize="14sp"
+            android:textColor="#0F172A"
+            android:paddingHorizontal="14dp"
+            android:background="@drawable/card_outline"
+            android:layout_marginBottom="14dp"/>
+
+        <!-- Age & Gender Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="14dp">
+
+            <!-- Age -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginEnd="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Age (Years) *"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="#334155"
+                    android:layout_marginBottom="4dp"/>
+
+                <EditText
+                    android:id="@+id/etPatientAge"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="e.g. 45"
+                    android:inputType="number"
+                    android:textSize="14sp"
+                    android:textColor="#0F172A"
+                    android:paddingHorizontal="14dp"
+                    android:background="@drawable/card_outline"/>
+            </LinearLayout>
+
+            <!-- Gender -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:orientation="vertical"
+                android:layout_marginStart="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gender *"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="#334155"
+                    android:layout_marginBottom="4dp"/>
+
+                <Spinner
+                    android:id="@+id/spinnerGender"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/card_outline"
+                    android:paddingHorizontal="8dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Patient ID / MRN -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Patient ID / MRN"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="#334155"
+            android:layout_marginBottom="4dp"/>
+
+        <EditText
+            android:id="@+id/etPatientId"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="e.g. PID-2026-4081"
+            android:inputType="textCapCharacters"
+            android:textSize="14sp"
+            android:textColor="#0F172A"
+            android:paddingHorizontal="14dp"
+            android:background="@drawable/card_outline"
+            android:layout_marginBottom="14dp"/>
+
+        <!-- Referring Doctor -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Referring Doctor / Clinician"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="#334155"
+            android:layout_marginBottom="4dp"/>
+
+        <EditText
+            android:id="@+id/etDoctorName"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="e.g. Dr. A. K. Verma"
+            android:inputType="textPersonName|textCapWords"
+            android:textSize="14sp"
+            android:textColor="#0F172A"
+            android:paddingHorizontal="14dp"
+            android:background="@drawable/card_outline"
+            android:layout_marginBottom="14dp"/>
+
+        <!-- Symptoms / Notes -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Symptoms / Clinical Notes"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="#334155"
+            android:layout_marginBottom="4dp"/>
+
+        <EditText
+            android:id="@+id/etSymptoms"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:hint="e.g. Fever, persistent cough, shortness of breath for 3 days"
+            android:inputType="textMultiLine|textCapSentences"
+            android:gravity="top|start"
+            android:textSize="14sp"
+            android:textColor="#0F172A"
+            android:paddingHorizontal="14dp"
+            android:paddingVertical="10dp"
+            android:background="@drawable/card_outline"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Buttons Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnDialogCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Cancel"
+                android:textAllCaps="false"
+                android:textColor="#64748B"
+                android:background="@android:color/transparent"
+                android:layout_marginEnd="8dp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnDialogConfirm"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Generate Report"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/btn_primary"
+                android:paddingHorizontal="20dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
